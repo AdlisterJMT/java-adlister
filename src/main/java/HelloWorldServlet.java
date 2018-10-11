@@ -3,7 +3,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter; <---Only needed if you utilize PrintWriter
 
 @WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
@@ -24,3 +24,4 @@ public class HelloWorldServlet extends HttpServlet {
 
     }
 }
+

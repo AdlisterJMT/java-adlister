@@ -7,36 +7,35 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    if (request.getMethod().equalsIgnoreCase("post")) {
+        String username = request.getParameter("user_name");
+        String password = request.getParameter("password");
+        if (username.equals("admin") && password.equals("password")) {
+            response.sendRedirect("/profile.jsp");
+        }
+    }
+%>
 <html>
 <head>
     <title>Login</title>
 </head>
 <body>
-    <form action="login_form" method="post">
+<h1>Please Log In</h1>
+    <form action="/login.jsp" method="post">
         <table>
             <tr>
                 <td>User Name</td>
-                <td><input type="text" name="user_name" /></td>
+                <td><input type="text" name="user_name" placeholder="enter user name" /></td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td><input type="text" name="password" /></td>
+                <td><input type="text" name="password" placeholder="enter password" /></td>
             </tr>
            </table>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Log In" />
     </form>
 
-    <c:choose>
-        <c:when test="Admin">
-            <p>Welcome, <c:out value="Admin" /> </p>
-        </c:when>
-        <c:when test="password">
-            <p>boolean_expression_1 was false, and boolean_expression_2 was true</p>
-        </c:when>
-        <c:otherwise>
-            <p>You're not an Admin, going back to login.</p>
-        </c:otherwise>
-    </c:choose>
 
 </body>
 </html>
