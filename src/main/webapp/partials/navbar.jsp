@@ -11,6 +11,12 @@
     <title>Navigatin Bar</title>
 </head>
 <body>
+<div class="topnav">
+    <a href="#" style="text-decoration: none" >Home</a>
+    <a href="#" style="text-decoration: none" >News</a>
+    <a href="#" style="text-decoration: none" >Contact</a>
+    <a href="#" style="text-decoration: none" >About</a>
+</div>
 
 </body>
 </html>

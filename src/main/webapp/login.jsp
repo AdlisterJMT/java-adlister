@@ -21,6 +21,7 @@
     <title>Login</title>
 </head>
 <body>
+<jsp:include page="partials/navbar.jsp"/>
 <h1>Please Log In</h1>
     <form action="/login.jsp" method="post">
         <table>

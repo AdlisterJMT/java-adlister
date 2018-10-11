@@ -12,6 +12,7 @@
     <title>Profile</title>
 </head>
 <body>
+<jsp:include page="partials/navbar.jsp"/>
 <h1>Welcome to the Admin page</h1>
 </body>
 </html>
