@@ -4,9 +4,10 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
+<section>
+    <div>
+        <h2><a href="/login" style="margin-left: 2%; ">Login</a></h2>
+    </div>
+</section>
