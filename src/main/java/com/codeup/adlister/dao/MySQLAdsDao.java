@@ -47,7 +47,7 @@ public class MySQLAdsDao implements Ads {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Unable to create new ad.", e);
+            throw new RuntimeException("Unable to create a new ad.", e);
         }
     }
 
@@ -68,6 +68,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
+//        Loops through the result set and creates a new ad
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
             ads.add(extractAd(rs));
