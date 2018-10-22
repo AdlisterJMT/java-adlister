@@ -2,10 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
-import com.github.ankurpathak.password.bean.constraints.ContainDigit;
-import com.github.ankurpathak.password.bean.constraints.ContainSpecial;
-import com.github.ankurpathak.password.bean.constraints.NotContainWhitespace;
-import com.github.ankurpathak.password.bean.constraints.PasswordMatches;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
