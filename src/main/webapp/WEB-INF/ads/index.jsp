@@ -7,15 +7,17 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
+<%--if logged in, show logged in navbar--%>
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
-
+    <h1>Latest Happenings in the community.</h1>
+    <hr>
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
+            <button type="button" class="btn btn-primary">Contact Seller</button>
         </div>
     </c:forEach>
 </div>
