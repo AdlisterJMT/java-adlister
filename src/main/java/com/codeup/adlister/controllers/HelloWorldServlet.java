@@ -12,5 +12,6 @@ public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 //        response.getWriter().println("<h1>Hello, World!</h1>");
         request.getRequestDispatcher("/webapp/index.jsp").forward(request, response);
+//        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
 }

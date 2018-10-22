@@ -13,8 +13,8 @@
         <hr>
         <h3>Here are your Ads.</h3>
         <blockquote>${sessionScope.ad.user_id}
-                    ${sessionScope.ad.title}
-                    ${sessionScope.ad.description}</blockquote>
+                    ${ads.title}
+                    ${ads.description}</blockquote>
         <button type="button" class="btn btn-info">Edit Ad</button>
         <button type="button" class="btn btn-danger">Delete Ad</button>
     </div>
