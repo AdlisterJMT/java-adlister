@@ -7,7 +7,7 @@ public class Config {
 
     public String getUrl() {
         if(url == null){
-            url = "jdbc:mysql://localhost/adlister_db?serverTimezone=UTC&useSSL=false";
+            url = "jdbc:mysql://localhost/music_adlister_db?serverTimezone=UTC&useSSL=false";
         }
         return url;
     }
