@@ -55,6 +55,11 @@ public class Validation{
 
 //Does the password have the minimum length of characters (8)? Yes/No
 
+    /**
+     * 1) Create public static boolean method to check if a password meets the minimum required length of 8 characters
+     * 2) If the password is 8 characters or more then it meets the password length
+     * 3) If the password is less than 8 characters then it doesn't meet the password length
+     */
     public static boolean validPasswordLength(String password){
         if(password.length() >= 8) {
             return true;
@@ -66,7 +71,17 @@ public class Validation{
     //AD CREATION VALIDATION
 
 
+    public static boolean adTitleLength(String title){
+        if(title.length() > 1 && title.length() <= 50){
+            return true;
+        }else return false;
+    }
 
+    public static boolean adDescriptionLength(String description){
+        if(description.length() > 1 && description.length() <= 100){
+            return true;
+        }else return false;
+    }
 
 
 
