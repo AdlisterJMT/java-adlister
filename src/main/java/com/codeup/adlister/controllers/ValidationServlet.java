@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 
-@WebServlet(name = "controllers.ValidationServlet", urlPatterns = "/ads/create")
+@WebServlet(name = "controllers.ValidationServlet", urlPatterns = "/validate")
 public class ValidationServlet extends HttpServlet{
 
     //created a new instance of config class; possibly need to create a ValidationDAO class instead

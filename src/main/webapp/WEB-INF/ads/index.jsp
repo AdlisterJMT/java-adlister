@@ -9,7 +9,6 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
 <%--if logged in, show logged in navbar--%>
-
 <div class="container">
     <h1>Latest Happenings in the community.</h1>
     <hr>
