@@ -3,7 +3,7 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-import java.util.ArrayList;
+
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +18,7 @@ public class ViewProfileServlet extends HttpServlet {
 
         User currUser = (User) request.getSession().getAttribute("user");
 
+//        This line causes error when I create new user to route to their profile page.
         Long userId = currUser.getId();
 
         List<Ad> ads = DaoFactory.getAdsDao().findAllAdsUserId(userId);
