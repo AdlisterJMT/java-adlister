@@ -18,7 +18,7 @@
         <div class="card-body">
             <h2 class="card-title">${ad.title}</h2>
             <p class="card-text">${ad.description}</p>
-            <a href="#" class="btn btn-primary">Contact Seller</a>
+            <a href="/contact" class="btn btn-primary">Contact Seller</a>
         </div>
         </div>
         </c:forEach>

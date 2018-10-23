@@ -29,5 +29,14 @@
         </div>
         </c:forEach>
     </div>
+    <div>
+    <c:if test="${not empty MessageSent}">
+        <script>
+            window.addEventListener("load",function(){
+                alert("${MessageSent}");
+            }
+        </script>
+    </c:if>
+    </div>
 </body>
 </html>

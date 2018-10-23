@@ -14,11 +14,6 @@ import java.util.List;
 @WebServlet(name = "controllers.HelloWorldServlet", urlPatterns = "/")
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        response.getWriter().println("<h1>Hello, World!</h1>");
-//        List<Ad> ads = DaoFactory.getAdsDao().all();
-//        request.setAttribute("ads", ads);
-//        System.out.println("reached servlet");
-//        System.out.println(ads);
         request.getRequestDispatcher("/webapp/index.jsp").forward(request, response);
     }
 }
