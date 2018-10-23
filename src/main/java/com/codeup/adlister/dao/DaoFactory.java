@@ -1,5 +1,7 @@
 package com.codeup.adlister.dao;
 
+import java.util.List;
+
 public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
@@ -18,4 +20,5 @@ public class DaoFactory {
         }
         return usersDao;
     }
+
 }
