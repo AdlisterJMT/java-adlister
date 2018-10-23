@@ -11,7 +11,7 @@
 
 
 
-<jsp:include page="/WEB-INF/partials/navbarLogin.jsp" / passwords-exercise
+<jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
     <div class="container">
 
 

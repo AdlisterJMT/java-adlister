@@ -24,8 +24,6 @@ public class Config {
         return password;
     }
 
- james-start
 }
 
-}
-passwords-exercise
+
