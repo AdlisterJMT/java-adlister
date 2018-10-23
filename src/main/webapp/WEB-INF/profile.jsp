@@ -30,13 +30,11 @@
         </c:forEach>
     </div>
     <div>
-    <c:if test="${not empty MessageSent}">
-        <script>
-            window.addEventListener("load",function(){
-                alert("${MessageSent}");
-            }
-        </script>
-    </c:if>
+        <% if (request.getSession().getAttribute("submitDone") == null ) { %>
+        <% request.getSession().setAttribute("submitDone", false); %>
+        <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
+        <script>alert("Form submitted"); </script>
+        <% } %>
     </div>
 </body>
 </html>
