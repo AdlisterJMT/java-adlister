@@ -19,7 +19,9 @@
 
         <h1>Please Log In</h1>
         <c:if test="${loginError != null}">
-            <h4>${loginError}</h4>
+            <div class="alert alert-danger">
+            <h5>${loginError}</h5>
+            </div>
         </c:if>
         <form action="/login" method="POST">
             <div class="form-group">

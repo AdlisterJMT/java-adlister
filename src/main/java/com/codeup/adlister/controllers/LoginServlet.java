@@ -37,8 +37,6 @@ public class LoginServlet extends HttpServlet {
 /*        Check the username to make sure it exists. If it does not, redirect to the login.jsp and display the error
           if it does, move forward and check the password
 */
-
-
         if (user == null) {
             request.getSession().setAttribute("loginError", loginErrorMessage);
 
