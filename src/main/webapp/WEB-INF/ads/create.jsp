@@ -8,6 +8,10 @@
 </head>
 <body>
 
+
+    <div class="container">
+
+
 <%--From the create ad servlet in the doPost section; check to see if the input has errors in the title or the description.
     If there are errors in the title, show the title error alert. If there are errors in the description show the description error.
     Otherwise don't show anything at all.--%>
@@ -34,7 +38,6 @@
 
 <%--end of explanation--%>
 
-    <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
