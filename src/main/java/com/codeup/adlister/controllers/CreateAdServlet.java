@@ -19,11 +19,12 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
                 .forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
                 user.getId(),
@@ -31,9 +32,6 @@ public class CreateAdServlet extends HttpServlet {
                 request.getParameter("description")
         );
 
-        //created two string objects to hold the title and description attributes from the session
-       String title = (String) request.getSession().getAttribute("title");
-       String description = (String) request.getSession().getAttribute("description");
 
 //Create a boolean logic for users input errors when creating an ad
 
@@ -67,7 +65,7 @@ public class CreateAdServlet extends HttpServlet {
 
             if (!Validation.adTitleLength(ad.getTitle())) {
 
-                request.getSession().setAttribute("Error: Title length", title);
+                request.getSession().setAttribute("titleError","Title length must be 1-50 characters.");
                 //if the ad's title doesn't meet the length requirements send an error message to the user
                 //there is an error about to set attribute (String, object)
 
@@ -76,7 +74,7 @@ public class CreateAdServlet extends HttpServlet {
 
             if (!Validation.adDescriptionLength(ad.getDescription())) {
 
-                request.getSession().setAttribute("Error in the description",description);
+                request.setAttribute("descriptionError","Description length must be 1-100 characters.");
 
                 //if the ad's description doesn't meet length requirements send an error message to user
                 //this is being stored in the session that can be accessed by the jsp
@@ -84,7 +82,7 @@ public class CreateAdServlet extends HttpServlet {
 
             if (ad.getTitle().isEmpty()) {
 
-//                request.getSession().setAttribute("Error: Title is empty");
+                request.setAttribute("emptyTitleError", "Title is empty");
 
                 //if ad title is empty send an error message
 
@@ -92,13 +90,12 @@ public class CreateAdServlet extends HttpServlet {
 
             if (ad.getDescription().isEmpty()) {
 
-//                request.getSession().setAttribute("Error: Description is empty");
+                request.setAttribute( "emptyDescriptionError", "Description is empty");
 
                 //if ad description is empty send an error message
             }
 
-            response.sendRedirect("/ads/create");
-            return;
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         } else {
 
             DaoFactory.getAdsDao().insert(ad);

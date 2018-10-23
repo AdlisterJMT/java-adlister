@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,6 +7,22 @@
     </jsp:include>
 </head>
 <body>
+
+    <c:if test="${titleError != null}">
+        <h1>${titleError}</h1>
+    </c:if>
+
+    <c:if test="${descriptionError != null}">
+        <h1>${descriptionError}</h1>
+    </c:if>
+
+    <c:if test="${emptyTitleError != null}">
+        <h1>${emptyTitleError}</h1>
+    </c:if>
+    <c:if test="${emptyDescriptionError != null}">
+        <h1>${emptyDescriptionError}</h1>
+    </c:if>
+
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
