@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,6 +17,7 @@
 
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <hr>
+ james-start
         <h3>Here are your Ads.</h3>
 
         <%--use the ESL symbols and take the session scope which relates to the "request.getSession()" where you set the
@@ -27,11 +29,31 @@
                     ${ads.description}</blockquote>
         <button type="button" class="btn btn-info">Edit Ad</button>
         <button type="button" class="btn btn-danger">Delete Ad</button>
-    </div>
-<%--Needs to show the user's ads--%>
-<%--Needs to be able update and delete ads--%>
-<%--Search bar to find ads--%>
-<%--Ability to update profile--%>
 
+        <h2>Here are your Ads.</h2>
+        <br>
+        <%--Needs to show the user's ads--%>
+        <c:forEach var="ad" items="${ads}">
+        <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">${ad.title}</h4>
+                <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
+                <p class="card-text">${ad.description}</p>
+                <a href="#" class="btn btn-info">Edit Ad</a>
+                <a href="#" class="btn btn-danger">Delete Ad</a>
+            </div>
+        </div>
+        </div>
+        </c:forEach>
+    </div>
+    <div>
+        <% if (request.getSession().getAttribute("submitDone") == null ) { %>
+        <% request.getSession().setAttribute("submitDone", false); %>
+        <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
+        <script>alert("Form submitted"); </script>
+        <% } %>
+      passwords-exercise
+    </div>
 </body>
 </html>

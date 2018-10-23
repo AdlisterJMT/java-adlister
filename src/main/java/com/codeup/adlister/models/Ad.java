@@ -11,12 +11,15 @@ public class Ad {
         this.userId = userId;
         this.title = title;
         this.description = description;
+
     }
+
 
     public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
+
     }
 
     public long getId() {
@@ -50,4 +53,6 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

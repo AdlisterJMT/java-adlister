@@ -18,8 +18,13 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
             return;
         }
+        request.setAttribute("loginError", request.getSession().getAttribute("loginError"));
+        request.getSession().removeAttribute("loginError");
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
+
+
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -33,15 +38,28 @@ public class LoginServlet extends HttpServlet {
         // 2) we create a user object and use the DaoFactory's getUserDao method to find the username
 
         User user = DaoFactory.getUsersDao().findByUsername(username);
+        System.out.println(user);
+        String loginErrorMessage = "Username or Password do not match";
 
+ james-start
         // 3) If the user object doesn't have a username/password (null) then the
+
+
+/*        Check the username to make sure it exists. If it does not, redirect to the login.jsp and display the error
+          if it does, move forward and check the password
+*/
+ passwords-exercise
         if (user == null) {
+            request.getSession().setAttribute("loginError", loginErrorMessage);
+
             response.sendRedirect("/login");
             return;
-        }
+        } else {
 
-        boolean validAttempt = Password.check(password, user.getPassword());
+            /*
+            Check to make sure the password matches what is in the database. If it does move on to the profile page
 
+ james-start
         //if the user is valid
 
         if (validAttempt) {
@@ -56,6 +74,34 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
+
+             */
+            boolean validAttempt = Password.check(password, user.getPassword());
+            if (!validAttempt) {
+                request.getSession().setAttribute("loginError",loginErrorMessage);
+                response.sendRedirect("/login");
+                return;
+            } else {
+                request.getSession().setAttribute("user",user);
+                response.sendRedirect("/profile");
+            }
+          passwords-exercise
         }
+
+
+
+
+
+
+//        request.setAttribute("LoginError", loginErrorMessage);
+//
+//
+//        if (validAttempt) {
+
+//        } else {
+//
+//            response.sendRedirect("/login");
+//        }
     }
 }
+

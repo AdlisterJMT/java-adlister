@@ -1,5 +1,10 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
+
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,11 +15,25 @@ import java.io.IOException;
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
-            return;
-        }
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
 
+        User currUser = (User) request.getSession().getAttribute("user");
+
+//        This line causes error when I create new user to route to their profile page.
+        Long userId = currUser.getId();
+
+        List<Ad> ads = DaoFactory.getAdsDao().findAllAdsUserId(userId);
+        request.setAttribute("ads", ads);
+        request.setAttribute("user_id", userId);
+
+
+        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        if (request.getSession().getAttribute("user") == null) {
+//            response.sendRedirect("/login");
+//            return;
+//        }
+//        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+//        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+//    }
 }
