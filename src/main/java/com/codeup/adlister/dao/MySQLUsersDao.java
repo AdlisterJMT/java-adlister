@@ -33,7 +33,16 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
-
+    public User findByEmail(String email){
+        String emailQuery = "SELECT * FROM users WHERE email = ? LIMIT 1";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(emailQuery);
+            stmt.setString(2, email);
+            return extractUser(stmt.executeQuery());
+        } catch(SQLException e){
+            throw new RuntimeException("Error finding a user by email", e);
+        }
+    }
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
