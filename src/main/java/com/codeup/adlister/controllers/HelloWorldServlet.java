@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-
 @WebServlet(name = "controllers.HelloWorldServlet", urlPatterns = "/")
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

@@ -9,17 +9,19 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
 <%--if logged in, show logged in navbar--%>
-
 <div class="container">
     <h1>Latest Happenings in the community.</h1>
     <hr>
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <button type="button" class="btn btn-primary">Contact Seller</button>
+    <div class="card-group">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">${ad.title}</h2>
+            <p class="card-text">${ad.description}</p>
+            <a href="/contact" class="btn btn-primary">Contact Seller</a>
         </div>
-    </c:forEach>
+        </div>
+        </c:forEach>
 </div>
 
 </body>
