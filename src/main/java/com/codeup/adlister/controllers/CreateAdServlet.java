@@ -63,39 +63,25 @@ public class CreateAdServlet extends HttpServlet {
                 ;
         if (inputHasErrors) {//check for the following
 
-            if (!Validation.adTitleLength(ad.getTitle())) {
+            if (!Validation.adTitleLength(ad.getTitle()) || ad.getTitle().isEmpty()) {
 
-                request.getSession().setAttribute("titleError","Title length must be 1-50 characters.");
+                request.setAttribute("titleError","Title is empty or doesn't meet length requirements (1 - 50 characters).");
                 //if the ad's title doesn't meet the length requirements send an error message to the user
                 //there is an error about to set attribute (String, object)
 
 
             }
 
-            if (!Validation.adDescriptionLength(ad.getDescription())) {
+            if (!Validation.adDescriptionLength(ad.getDescription()) || ad.getDescription().isEmpty()) {
 
-                request.setAttribute("descriptionError","Description length must be 1-100 characters.");
+                request.setAttribute("descriptionError","Description is empty or doesn't meet length requirements (1 - 100 characters).");
 
                 //if the ad's description doesn't meet length requirements send an error message to user
                 //this is being stored in the session that can be accessed by the jsp
             }
 
-            if (ad.getTitle().isEmpty()) {
-
-                request.setAttribute("emptyTitleError", "Title is empty");
-
-                //if ad title is empty send an error message
-
-            }
-
-            if (ad.getDescription().isEmpty()) {
-
-                request.setAttribute( "emptyDescriptionError", "Description is empty");
-
-                //if ad description is empty send an error message
-            }
-
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+
         } else {
 
             DaoFactory.getAdsDao().insert(ad);
