@@ -14,6 +14,9 @@ public class DeleteProfileServlet {
     /*
     Steps needed. ask fellow for help. need figure out how to connect users_id to the button (Delete Profile) and
     use this servlet to delete the profile in questions.
+
+
+    Test commit ignore this
      */
 
 //    Connection is Java.SQL
