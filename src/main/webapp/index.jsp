@@ -9,11 +9,13 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Let's Make Music!</h1>
+        <h1 style="text-align: center">Making Music!</h1>
         <hr>
-        <blockquote>If you are interested in any of the ads below; we ask that you log into your account, in order to contact the Seller.
-                    If this is your first time to the site, please join the community by creating an account.
-        </blockquote>
+        <blockquote style="padding-top: 5%">We are a community of individuals who enjoy collaborating inorder to create musical magnificence. What does collaboration
+                    look like? Creating Ads for the buying and selling of goods and/or services you have to offer to the community.
+                    Once you create an account you can see all the ads posted by the members of our community. You can even create your own ad.
+                    If you come across an ad that peaks your interest, click 'Contact Seller' and send them an email. Already a prestigious member?
+                    Just click Login, and you know the drill.🎤🎧🎼🎹🥁🎷🎺🎸🎻</blockquote>
     </div>
 </body>
 </html>

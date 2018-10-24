@@ -17,21 +17,10 @@
 
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <hr>
- james-start
-        <h3>Here are your Ads.</h3>
-
+            <h2>Here are your Ads.</h2>
+            <br>
         <%--use the ESL symbols and take the session scope which relates to the "request.getSession()" where you set the
          ad attribute in the CreateAdServlet, and access the ad object's user_id which is specific to the user --%>
-        <blockquote>${sessionScope.ad.user_id}
-
-
-                    ${ads.title}
-                    ${ads.description}</blockquote>
-        <button type="button" class="btn btn-info">Edit Ad</button>
-        <button type="button" class="btn btn-danger">Delete Ad</button>
-
-        <h2>Here are your Ads.</h2>
-        <br>
         <%--Needs to show the user's ads--%>
         <c:forEach var="ad" items="${ads}">
         <div class="card-group">
@@ -53,7 +42,6 @@
         <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
         <script>alert("Form submitted"); </script>
         <% } %>
-      passwords-exercise
     </div>
 </body>
 </html>
