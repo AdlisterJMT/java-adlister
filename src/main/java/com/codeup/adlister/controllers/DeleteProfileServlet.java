@@ -1,52 +1,98 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.Config;
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-public class DeleteProfileServlet {
-
-    /*
-    Steps needed. ask fellow for help. need figure out how to connect users_id to the button (Delete Profile) and
-    use this servlet to delete the profile in questions.
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.*;
+@WebServlet(name = "controllers.DeleteProfileServlet", urlPatterns = "/deleteProfile")
+public class DeleteProfileServlet extends HttpServlet {
 
 
-    Test commit ignore this
-     */
+//    Creates a new instance of Config
+    Config config = new Config();
 
-//    Connection is Java.SQL
+    private  String ConfigUrl = config.getUrl();
+    private String username = config.getUser();
+    private String password = config.getPassword();
+
+
+
+
     private Connection connection = null;
 
-//    Config is dao.Config
-    public DeleteProfileServlet (Config config){
 
+    public DeleteProfileServlet() {
         try {
             DriverManager.registerDriver(new Driver());
-            connection = DriverManager.getConnection(
-                    config.getUrl(),
-                    config.getUser(),
-                    config.getPassword()
-            );
+            connection = DriverManager.getConnection(config.getUrl(),config.getUser(),config.getPassword());
 
-            String query = "delete from users where id = ?";
-            PreparedStatement preparedStmt = connection.prepareStatement(query);
-
-            //need to figure out how to get to the button
-
-
-            preparedStmt.execute();
-
-
-            //closes the connection
-            connection.close();
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error connecting to the database!",e);
         }
     }
 
+
+
+
+        public void deleteUser(User user) {
+
+
+
+        try {
+            String deleteAds ="delete from ads where user_id = ?";
+            PreparedStatement statemt = connection.prepareStatement(deleteAds, Statement.RETURN_GENERATED_KEYS);
+            statemt.setLong(1, user.getId());
+            statemt.executeUpdate();
+
+
+            String insertQuery = "delete from users where id = ?";
+                PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+                stmt.setLong(1, user.getId());
+//                stmt.setString(2, ad.getTitle());
+//                stmt.setString(3, ad.getDescription());
+                stmt.executeUpdate();
+
+
+//                ResultSet rs = stmt.getGeneratedKeys();
+//                rs.next();
+//                return rs.getLong(1);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error creating a new ad.", e);
+            }
+
+
+
+
+
+    }
+
+    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+        User user = (User) request.getSession().getAttribute("user");
+
+
+
+
+
+        deleteUser(user);
+
+        request.getSession().invalidate();
+
+        response.sendRedirect("/");
+
+
+//    Connection is Java.SQL
+
+
+
+
+
+    }
 }

@@ -15,8 +15,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Update Profile</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Delete Profile</a>
+
+            <li class="nav-item"><form action="/deleteProfile" method="post">
+
+                <button type="submit">Delete Profile</button></form>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
