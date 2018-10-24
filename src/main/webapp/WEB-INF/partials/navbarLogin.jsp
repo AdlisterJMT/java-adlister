@@ -18,7 +18,7 @@
 
             <li class="nav-item"><form action="/deleteProfile" method="post">
 
-                <button type="submit">Delete Profile</button></form>
+                <button class="btn btn-dark" type="submit">Delete Profile</button></form>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
