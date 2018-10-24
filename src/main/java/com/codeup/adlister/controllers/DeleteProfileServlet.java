@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.*;
 
 
-@WebServlet(name = "controllers.DeleteProfileServlet", urlPatterns = "/deleteProfile")
+@WebServlet(name = "DeleteProfileServlet", urlPatterns = "/deleteProfile")
 public class DeleteProfileServlet extends HttpServlet {
 
 
@@ -27,6 +27,29 @@ public class DeleteProfileServlet extends HttpServlet {
 
     private Connection connection = null;
 
+
+    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        /**
+         * Creates a user object var, that takes the session request and gets the attribute for the user
+         * Cast the request as a user object to maintain compatibility.
+         **/
+
+        System.out.println("HELLO");
+
+        User user = (User) request.getSession().getAttribute("user");
+
+
+        //Runs the method deleteUser
+        deleteUser(user);
+
+        //Invalidates the current session
+        request.getSession().invalidate();
+
+        //Once the user has been deleted, this will redirect to the index/home page
+        response.sendRedirect("/");
+
+
+    }
 
     public DeleteProfileServlet() {
         try {
@@ -62,27 +85,6 @@ public class DeleteProfileServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.",e);
         }
-
-
-    }
-
-    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        /**
-         * Creates a user object var, that takes the session request and gets the attribute for the user
-         * Cast the request as a user object to maintain compatibility.
-         */
-
-        User user = (User) request.getSession().getAttribute("user");
-
-
-        //Runs the method deleteUser
-        deleteUser(user);
-
-        //Invalidates the current session
-        request.getSession().invalidate();
-
-        //Once the user has been deleted, this will redirect to the index/home page
-        response.sendRedirect("/");
 
 
     }

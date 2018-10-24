@@ -35,7 +35,6 @@ public class RegisterServlet extends HttpServlet {
             || !Validation.validPasswordLength(password)
             || !password.equals(passwordConfirmation);
 
-        //Error Messages need to be created here.
         if (inputHasErrors) {
             if(username.isEmpty()) {
 
