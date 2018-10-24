@@ -5,6 +5,7 @@ public class Config {
     private String user;
     private String password;
 
+
     public String getUrl() {
         if(url == null){
             url = "jdbc:mysql://localhost/music_adlister_db?serverTimezone=UTC&useSSL=false";
@@ -24,8 +25,6 @@ public class Config {
         return password;
     }
 
- james-start
 }
 
-}
-passwords-exercise
+
