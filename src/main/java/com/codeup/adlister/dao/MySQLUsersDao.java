@@ -43,6 +43,9 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by email", e);
         }
     }
+
+
+
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";

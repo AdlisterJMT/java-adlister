@@ -61,7 +61,44 @@ public class Validation{
      * 3) If the password is less than 8 characters then it doesn't meet the password length
      */
     public static boolean validPasswordLength(String password){
-        if(password.length() >= 8) {
+        if(password.length() >= 8
+           && (password.contains("!")
+                || password.contains("@")
+                || password.contains("#")
+                || password.contains("$")
+                || password.contains("%")
+                || password.contains("^")
+                || password.contains("&")
+                || password.contains("*")
+                || password.contains("(")
+                || password.contains(")"))
+        && (password.contains("A")
+                || password.contains("B")
+                || password.contains("C")
+                || password.contains("D")
+                || password.contains("E")
+                || password.contains("F")
+                || password.contains("G")
+                || password.contains("H")
+                || password.contains("I")
+                || password.contains("J")
+                || password.contains("K")
+                || password.contains("L")
+                || password.contains("M")
+                || password.contains("N")
+                || password.contains("O")
+                || password.contains("P")
+                || password.contains("Q")
+                || password.contains("R")
+                || password.contains("S")
+                || password.contains("T")
+                || password.contains("U")
+                || password.contains("V")
+                || password.contains("W")
+                || password.contains("X")
+                || password.contains("Y")
+                || password.contains("Z")))
+        {
             return true;
         }else return false;
     }
@@ -83,6 +120,7 @@ public class Validation{
         }else return false;
     }
 
+    //REGISTRATION VALIDATION
 
 
 
