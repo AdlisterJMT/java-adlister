@@ -38,6 +38,17 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public List<Ad> some() {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE '%' OR description LIKE '%'");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving your requested ad.", e);
+        }
+    }
+
     public List<Ad> findAllAdsUserId(Long user_id) {
         try {
             String findAd = "select * from ads where user_id = ?";
@@ -85,4 +96,5 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
 }

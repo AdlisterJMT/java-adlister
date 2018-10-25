@@ -9,7 +9,7 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1 style="text-align: center">Making Music!</h1>
+        <h1 style="text-align: center">Let's Make Music!</h1>
         <hr>
         <blockquote style="padding-top: 5%">🎤🎧🎼🎹🥁🎷🎺🎸🎻We are a community of individuals who enjoy collaborating inorder to create musical magnificence. What does collaboration
                     look like? Creating Ads for the buying and selling of goods and/or services you have to offer to the community.

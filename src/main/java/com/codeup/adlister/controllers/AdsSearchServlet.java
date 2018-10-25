@@ -1,17 +1,37 @@
 package com.codeup.adlister.controllers;
-
+import com.codeup.adlister.dao.Ads;
 import com.codeup.adlister.dao.DaoFactory;
-
+import com.codeup.adlister.models.Ad;
+import java.sql.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-@WebServlet(name = "controllers.AdsSearchServlet", urlPatterns = "/ads/search")
+@WebServlet(name = "controllers.AdsSearchServlet", urlPatterns = "/search")
 public class AdsSearchServlet extends HttpServlet {
 
-}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Ad> ads = DaoFactory.getAdsDao().some();
+        request.setAttribute("ads", DaoFactory.getAdsDao().some());
+        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
+        request.setAttribute("ads", ads);
+
+
+    }
+
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//        }
+    }
+
 
 
