@@ -15,7 +15,7 @@ public class ListAdsDao implements Ads {
         return ads;
     }
 
-    public List<Ad> some(){
+    public List<Ad> some(String searchTerm){
         return ads;
     }
 
