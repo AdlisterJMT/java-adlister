@@ -64,7 +64,7 @@ public class DeleteAdsServlet extends HttpServlet {
 
 
         long adId = Long.parseLong(request.getParameter("adId"));
-        Ad ad = DaoFactory.getAdsDao().findOne(adId).get(0);
+        Ad ad = DaoFactory.getAdsDao().findOne(adId);
 
         //Runs the method deleteUser
         deleteAds(ad);
