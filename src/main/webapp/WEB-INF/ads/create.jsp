@@ -7,9 +7,6 @@
     </jsp:include>
 </head>
 <body>
- james-start
-
-
 
 <jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
     <div class="container">
