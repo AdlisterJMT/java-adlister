@@ -23,6 +23,7 @@ public class RegisterServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         /**
          * Create string variables to hold username, email, password, and password confirmation then get each parameter
          *
@@ -38,13 +39,13 @@ public class RegisterServlet extends HttpServlet {
          * In order to call methods from the Password and User classes in the RegisterServlet class
          * We have to create a new instance of the Password Class
          */
+
         Password pw = new Password();
 
 
         /**
          * ERROR MESSAGES RENDER ON REGISTER PAGE, HOWEVER THE FIRST ERROR MESSAGE REMAINS AND THE PAGE DOESN'T CREATE THE NEW USER IN THE DATABASE.
          * TO FIX WE HAD TO MAKE SURE THE pw.validate(password) DID NOT VALIDATE (!pw.validate(password)) BY PRINTING OUT EACH LINE OF THE BOOLEAN LOGIC.
-         *
          */
 
         /**
@@ -68,7 +69,7 @@ public class RegisterServlet extends HttpServlet {
 
 
         //Doing this first could have saved me two hours debugging -REMINDER SOUT OFTEN
-        /**        System.out.println(username.isEmpty());
+        /**     System.out.println(username.isEmpty());
                 System.out.println(userExists);
                 System.out.println(email.isEmpty());
                 System.out.println(password.isEmpty());
@@ -79,7 +80,6 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
             if(username.isEmpty() || userExists){
-                System.out.println(userExists);
                 request.setAttribute("usernameError", "This field is either empty or username already exists" );
             }
             if(email.isEmpty()){
