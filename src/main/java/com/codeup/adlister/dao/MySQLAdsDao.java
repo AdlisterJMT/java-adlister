@@ -37,19 +37,42 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving single ads.", e);
         }
     }
+
     @Override
-    public List<Ad> findOne(long id){
-        PreparedStatement stmt = null;
-        try{
+    public Ad findOne(long id) {
 
-            stmt = connection.prepareStatement("SELECT * FROM ads where id = ?");
-            stmt.setLong(1, id);
-            ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM ads where id = ?");
+            //bind the '?' parameters with a specific value by using their indexes:
+            statement.setLong(1, id);
+
+            ResultSet rs = statement.executeQuery();
+            rs.next(); //move to the first row of result set
+            return extractAd(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving single ad");
+            throw new RuntimeException("Error retrieving one ad.", e);
         }
+    }
 
+    @Override
+    public Ad editAd(Ad ad){
+
+//      String query created to edit the ad in question
+        try {
+            String editQuery = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+
+            PreparedStatement statemt = connection.prepareStatement(editQuery,Statement.RETURN_GENERATED_KEYS);
+            statemt.setString(1, ad.getTitle());
+            statemt.setString(2, ad.getDescription());
+            statemt.setLong(3,ad.getId());
+
+            statemt.executeUpdate();
+
+        } catch (SQLException e){
+            throw new RuntimeException("Error modifing the ad.",e);
+        }
+        return ad;
     }
 
     public List<Ad> findAllAdsUserId(Long user_id) {

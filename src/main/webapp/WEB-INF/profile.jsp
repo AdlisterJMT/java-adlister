@@ -33,7 +33,7 @@
                 <h4 class="card-title">${ad.title}</h4>
                 <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
                 <p class="card-text">${ad.description}</p>
-                <a href="/editAd" class="btn btn-info">Edit Ad</a>
+                <a href="/editAd?id=${ad.id}" class="btn btn-info">Edit Ad</a>
                 <form action="/deleteAd" method="post">
                     <input type="hidden" name="adId" value="${ad.id}" />
                     <button class="btn btn-danger" type="submit">Delete Ad</button></form>
