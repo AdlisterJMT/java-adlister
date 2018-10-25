@@ -1,18 +1,13 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
-import com.codeup.adlister.dao.Validation;
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Password;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.io.IOException;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
@@ -68,7 +63,8 @@ public class RegisterServlet extends HttpServlet {
             || (!password.equals(passwordConfirmation));
 
 
-        //Doing this first could have saved me two hours debugging -REMINDER SOUT OFTEN
+        //Doing this first could have saved me two hours debugging -REMINDER System.out.println() OFTEN
+
         /**     System.out.println(username.isEmpty());
                 System.out.println(userExists);
                 System.out.println(email.isEmpty());
@@ -91,7 +87,6 @@ public class RegisterServlet extends HttpServlet {
             if(!password.equals(passwordConfirmation)) {
                 request.setAttribute("passwordConfirmationError", "Your password does not match");
             }
-                System.out.println("It still thinks we have a problem.");
                 request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         } else {
 
