@@ -34,8 +34,6 @@ public class DeleteProfileServlet extends HttpServlet {
          * Cast the request as a user object to maintain compatibility.
          **/
 
-        System.out.println("HELLO");
-
         User user = (User) request.getSession().getAttribute("user");
 
 

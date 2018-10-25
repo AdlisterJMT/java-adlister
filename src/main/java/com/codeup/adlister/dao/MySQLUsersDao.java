@@ -43,6 +43,7 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by email", e);
         }
     }
+//    Note left by Michael - 500 Error caused when dupe account is being created
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
@@ -57,6 +58,7 @@ public class MySQLUsersDao implements Users {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
+
         }
     }
 
