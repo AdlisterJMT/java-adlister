@@ -1,5 +1,6 @@
 package com.codeup.adlister.models;
 
+import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.util.Password;
 
 public class User {
@@ -54,4 +55,36 @@ public class User {
     public void setPassword(String password) {
         this.password = Password.hash(password);
     }
+
+/**
+ * Created userExists/emailExists in the User object model because the method could not be used in the validation class.
+ * Using the method on the register servlet did not reach the validation class even though it was imported.
+ * The reason is because we are creating a user object. If we want to get information on the user that is registering we
+ * get that from the object, not just creating rules that apply
+ */
+
+
+//--------------------------------------------- Registration Validation ---------------------------------------------\\
+
+        //method cannot be static because of the "this" instance of the specific property.
+    public boolean userExists(String username) {
+        this.username = username;
+        User user = DaoFactory.getUsersDao().findByUsername(username);
+        System.out.println(user);
+        if(username != null) {
+            return true;
+        }else return false;
+    }
+
+
+
+    public boolean emailExists(String email){
+        this.email = email;
+        User user = DaoFactory.getUsersDao().findByEmail(email);
+        System.out.println(user);
+        if(user != null) {
+            return true;
+        } else return false;
+    }
+
 }

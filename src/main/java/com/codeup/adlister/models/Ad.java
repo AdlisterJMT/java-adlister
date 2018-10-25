@@ -1,6 +1,19 @@
 package com.codeup.adlister.models;
 
+//@Entity
+//@Table(name="ads")
+
 public class Ad {
+
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name="ads_categories",
+//            joinColumns={@JoinColumn(name="ad_id")},
+//            inverseJoinColumns={@JoinColumn(name="category_id")}
+//    )
+//    private List<AdCategory> categories;
+//}
+
     private long id;
     private long userId;
     private String title;

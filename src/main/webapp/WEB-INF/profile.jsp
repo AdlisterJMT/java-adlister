@@ -17,10 +17,8 @@
 
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <hr>
-            <h2>Here are your Ads.</h2>
-            <br>
-        <%--use the ESL symbols and take the session scope which relates to the "request.getSession()" where you set the
-         ad attribute in the CreateAdServlet, and access the ad object's user_id which is specific to the user --%>
+        <h2>Here are your Ads.</h2>
+        <br>
         <%--Needs to show the user's ads--%>
         <c:forEach var="ad" items="${ads}">
         <div class="card-group">

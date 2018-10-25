@@ -41,20 +41,19 @@ public class LoginServlet extends HttpServlet {
         System.out.println(user);
         String loginErrorMessage = "Username or Password do not match";
 
-
         // 3) If the user object doesn't have a username/password (null) then the
 
 
 /*        Check the username to make sure it exists. If it does not, redirect to the login.jsp and display the error
           if it does, move forward and check the password
 */
-
         if (user == null) {
             request.getSession().setAttribute("loginError", loginErrorMessage);
 
             response.sendRedirect("/login");
             return;
         } else {
+
 
 
             boolean validAttempt = Password.check(password, user.getPassword());
@@ -66,10 +65,22 @@ public class LoginServlet extends HttpServlet {
                 request.getSession().setAttribute("user",user);
                 response.sendRedirect("/profile");
             }
-
         }
 
 
+
+
+
+
+//        request.setAttribute("LoginError", loginErrorMessage);
+//
+//
+//        if (validAttempt) {
+
+//        } else {
+//
+//            response.sendRedirect("/login");
+//        }
     }
 }
 

@@ -44,27 +44,65 @@ public class Validation{
      *    and assign it to a user object
      * 4) if the user is not null then the user's email does exist, otherwise it doesn't
      *
+     * NOTE: the emailExists is not used we are not comparing for duplicate emails.
      */
-    public static boolean emailExists(String email){
-        User user = DaoFactory.getUsersDao().findByEmail(email);
-        System.out.println(user);
-        if(user != null) {
-            return true;
-        } else return false;
-    }
+//    public static boolean emailExists(String email){
+//        User user = DaoFactory.getUsersDao().findByEmail(email);
+//        System.out.println(user);
+//        if(user != null) {
+//            return true;
+//        } else return false;
+//    }
 
 //Does the password have the minimum length of characters (8)? Yes/No
-
+//with the REGEX METHOD IN PASSWORD UTIL the validPasswordLength is unnecessary
     /**
      * 1) Create public static boolean method to check if a password meets the minimum required length of 8 characters
      * 2) If the password is 8 characters or more then it meets the password length
      * 3) If the password is less than 8 characters then it doesn't meet the password length
      */
-    public static boolean validPasswordLength(String password){
-        if(password.length() >= 8) {
-            return true;
-        }else return false;
-    }
+//    public static boolean validPasswordLength(String password){
+//        if(password.length() >= 8
+//           && (password.contains("!")
+//                || password.contains("@")
+//                || password.contains("#")
+//                || password.contains("$")
+//                || password.contains("%")
+//                || password.contains("^")
+//                || password.contains("&")
+//                || password.contains("*")
+//                || password.contains("(")
+//                || password.contains(")"))
+//        && (password.contains("A")
+//                || password.contains("B")
+//                || password.contains("C")
+//                || password.contains("D")
+//                || password.contains("E")
+//                || password.contains("F")
+//                || password.contains("G")
+//                || password.contains("H")
+//                || password.contains("I")
+//                || password.contains("J")
+//                || password.contains("K")
+//                || password.contains("L")
+//                || password.contains("M")
+//                || password.contains("N")
+//                || password.contains("O")
+//                || password.contains("P")
+//                || password.contains("Q")
+//                || password.contains("R")
+//                || password.contains("S")
+//                || password.contains("T")
+//                || password.contains("U")
+//                || password.contains("V")
+//                || password.contains("W")
+//                || password.contains("X")
+//                || password.contains("Y")
+//                || password.contains("Z")))
+//        {
+//            return true;
+//        }else return false;
+//    }
 
 
 
@@ -82,10 +120,5 @@ public class Validation{
             return true;
         }else return false;
     }
-
-
-
-
-
 
 }
