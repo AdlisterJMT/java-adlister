@@ -8,10 +8,7 @@
 </head>
 <body>
 
-
-
-
-<jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
+<jsp:include page="/WEB-INF/partials/navbarLogin.jsp"/>
     <div class="container">
 
 

@@ -15,8 +15,9 @@ public class ListAdsDao implements Ads {
         return ads;
     }
 
-    public List<Ad> some(String searchTerm){
-        return ads;
+    @Override
+    public List<Ad> findOne(long id) {
+        return null;
     }
 
     public Long insert(Ad ad) {

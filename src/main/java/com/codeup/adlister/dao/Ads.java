@@ -11,4 +11,5 @@ public interface Ads {
     List<Ad> some(String searchTerm);
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
+    List<Ad> findOne(long id);
 }

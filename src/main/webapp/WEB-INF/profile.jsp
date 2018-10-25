@@ -17,8 +17,14 @@
 
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <hr>
-        <h2>Here are your Ads.</h2>
-        <br>
+            <h2>Here are your Ads.</h2>
+            <br>
+
+        <%--use the ESL symbols and take the session scope which relates to the "request.getSession()" where you set the
+         ad attribute in the CreateAdServlet, and access the ad object's user_id which is specific to the user --%>
+
+
+
         <%--Needs to show the user's ads--%>
         <c:forEach var="ad" items="${ads}">
         <div class="card-group">
@@ -27,8 +33,11 @@
                 <h4 class="card-title">${ad.title}</h4>
                 <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
                 <p class="card-text">${ad.description}</p>
-                <a href="#" class="btn btn-info">Edit Ad</a>
-                <a href="#" class="btn btn-danger">Delete Ad</a>
+                <a href="/editAd" class="btn btn-info">Edit Ad</a>
+                <form action="/deleteAd" method="post">
+                    <input type="hidden" name="adId" value="${ad.id}" />
+                    <button class="btn btn-danger" type="submit">Delete Ad</button></form>
+                <%--<a href="#" class="btn btn-danger">Delete Ad</a>--%>
             </div>
         </div>
         </div>
