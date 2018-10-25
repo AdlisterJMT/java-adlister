@@ -66,6 +66,25 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+//    Trying to move deleteAds to Doa, need to figure out how write return in the method. - Michael
+
+//    public  deleteAds(Ad ad) {
+//
+//        try {
+//            //This block of code sets the query for the mySQL database and deletes any ads associated to the user.
+//            String deleteAds = "delete from ads where id = ?";
+//
+//            //Makes the connection to the database
+//            PreparedStatement statemt = connection.prepareStatement(deleteAds,Statement.RETURN_GENERATED_KEYS);
+//            statemt.setLong(1,ad.getId());
+//            statemt.executeUpdate();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error deleting the ad.",e);
+//        }
+//
+//    }
+
     @Override
     public Long insert(Ad ad) {
         try {
