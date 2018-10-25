@@ -7,6 +7,7 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +40,12 @@ public class EditAdServlet extends HttpServlet {
         }
     }
 
+    //add doGet
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/editAd.jsp").forward(request, response);
+    }
+
+
     public void editAd (Ad ad){
 
 //      String query created to edit the ad in question
@@ -50,7 +57,7 @@ public class EditAdServlet extends HttpServlet {
             statemt.executeUpdate();
 
         } catch (SQLException e){
-            throw new RuntimeException("Error deleting the ad.",e);
+            throw new RuntimeException("Error modifing the ad.",e);
         }
 
     }
