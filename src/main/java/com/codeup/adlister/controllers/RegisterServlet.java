@@ -22,7 +22,7 @@ public class RegisterServlet extends HttpServlet {
     }
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /**
          * Create string variables to hold username, email, password, and password confirmation then get each parameter
          *
@@ -59,6 +59,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
             if(username.isEmpty() || user.userExists(username)){
+                System.out.println(user.getUsername());
                 request.setAttribute("usernameError", "This field is either empty or username already exists" );
             }
             if(email.isEmpty()){
@@ -69,9 +70,8 @@ public class RegisterServlet extends HttpServlet {
             }
             if(!password.equals(passwordConfirmation)) {
                 request.setAttribute("passwordConfirmationError", "Your password does not match");
-                response.sendRedirect("/register");
-                return;
             }
+                request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         } else {
 
             // insert the new user
