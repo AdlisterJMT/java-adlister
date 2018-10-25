@@ -13,10 +13,6 @@
                 <a class="nav-link" href="/ads/create">Create New Ad</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Update Profile</a>
-            </li>
-
-            <li class="nav-item">
                 <form action="/deleteProfile" method="post">
                     <button class="btn btn-dark" type="submit">Delete Profile</button>
                 </form>
