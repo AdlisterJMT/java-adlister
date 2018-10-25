@@ -43,8 +43,14 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by email", e);
         }
     }
-
-
+//trying to create a list of usernames but this won't work
+//    public User listOfUsernames(String username){
+//        String usernameQuery = "SELECT ? FROM users";
+//        try{
+//            PreparedStatement stmt = connection.prepareStatement(usernameQuery);
+//            stmt.setString(1, username);
+//        }
+//    }
 
     @Override
     public Long insert(User user) {
