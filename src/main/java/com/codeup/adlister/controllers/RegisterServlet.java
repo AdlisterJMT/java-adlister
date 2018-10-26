@@ -29,18 +29,23 @@ public class RegisterServlet extends HttpServlet {
 
 
 
-
         boolean inputHasErrors = username.isEmpty()
             || email.isEmpty()
             || password.isEmpty()
             || !Validation.validPasswordLength(password)
-            || (!password.equals(passwordConfirmation));
+            || !password.equals(passwordConfirmation);
 
         if (inputHasErrors) {
-            if(username.isEmpty())
-            if(email.isEmpty())
-            if(password.isEmpty())
-            if(!Validation.validPasswordLength((password))){
+            if(username.isEmpty()) {
+
+            }
+            if(email.isEmpty()) {
+
+            }
+            if(password.isEmpty()) {
+
+            }
+            if(!Validation.validPasswordLength((password))) {
 
             }
             if(!password.equals(passwordConfirmation))
@@ -51,6 +56,7 @@ public class RegisterServlet extends HttpServlet {
         // create and save a new user
         User user = new User(username, email, password);
         DaoFactory.getUsersDao().insert(user);
+        request.getSession().setAttribute("user", user);
         response.sendRedirect("/profile");
     }
 }

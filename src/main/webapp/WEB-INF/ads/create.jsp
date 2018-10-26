@@ -7,12 +7,15 @@
     </jsp:include>
 </head>
 <body>
- james-start
 
+<jsp:include page="/WEB-INF/partials/navbarLogin.jsp"/>
+    <div class="container m-5">
 
+        <div class="row">
 
-<jsp:include page="/WEB-INF/partials/navbarLogin.jsp" / passwords-exercise
-    <div class="container">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
 
 
 <%--From the create ad servlet in the doPost section; check to see if the input has errors in the title or the description.
@@ -63,6 +66,11 @@
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
     </div>
 </body>
 </html>

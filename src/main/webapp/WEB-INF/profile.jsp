@@ -9,51 +9,57 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
 <%--Expression language  --%>
-    <div class="container">
+    <div class="container m-5">
 
         <%--To use the user's username in the profile page we must access the session in order to retrieve the user object--%>
         <%--use the ESL symbols and take the sessionScope which relates to the "request.getSession()" where you set user attribute
          in the LoginServlet to user, and access the user's username property--%>
 
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <hr>
- james-start
-        <h3>Here are your Ads.</h3>
+            <h2>Here are your Ads.</h2>
+            <br>
 
         <%--use the ESL symbols and take the session scope which relates to the "request.getSession()" where you set the
          ad attribute in the CreateAdServlet, and access the ad object's user_id which is specific to the user --%>
-        <blockquote>${sessionScope.ad.user_id}
 
 
-                    ${ads.title}
-                    ${ads.description}</blockquote>
-        <button type="button" class="btn btn-info">Edit Ad</button>
-        <button type="button" class="btn btn-danger">Delete Ad</button>
 
-        <h2>Here are your Ads.</h2>
-        <br>
         <%--Needs to show the user's ads--%>
         <c:forEach var="ad" items="${ads}">
-        <div class="card-group">
+        <div class="card-group mt-3">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">${ad.title}</h4>
+                <hr>
                 <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
                 <p class="card-text">${ad.description}</p>
-                <a href="#" class="btn btn-info">Edit Ad</a>
-                <a href="#" class="btn btn-danger">Delete Ad</a>
+
+
+                <a href="/editAd?id=${ad.id}" class="btn btn-info">Edit Ad</a>
+                <form action="/deleteAd" method="post">
+                    <input type="hidden" name="adId" value="${ad.id}" />
+                    <button class="btn btn-danger" style="max-width: 96px" type="submit">Delete Ad</button></form>
+                <%--<a href="#" class="btn btn-danger">Delete Ad</a>--%>
             </div>
         </div>
         </div>
         </c:forEach>
-    </div>
+
     <div>
         <% if (request.getSession().getAttribute("submitDone") == null ) { %>
         <% request.getSession().setAttribute("submitDone", false); %>
         <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
         <script>alert("Form submitted"); </script>
         <% } %>
-      passwords-exercise
+
+    </div>
+
+            </div>
+                <div class="col-md-2"></div>
     </div>
 </body>
 </html>
