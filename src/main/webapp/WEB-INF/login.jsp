@@ -9,31 +9,33 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-
-        <%--Idea to try to get if statement to show invaild UserName/Passwore--%>
-        <%--<c:if test="${validAttempt}">--%>
+    <div class="container mt-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <%--Idea to try to get if statement to show invaild UserName/Passwore--%>
+            <%--<c:if test="${validAttempt}">--%>
             <%--Sorry. Wrong user name or password--%>
-        <%--</c:if>--%>
+            <%--</c:if>--%>
 
-
-        <h1>Please Log In</h1>
-        <c:if test="${loginError != null}">
-            <div class="alert alert-danger">
-            <h5>${loginError}</h5>
-            </div>
-        </c:if>
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
-            </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
-        </form>
+            <h1>Please Log In</h1>
+            <c:if test="${loginError != null}">
+                <div class="alert alert-danger">
+                    <h5>${loginError}</h5>
+                </div>
+            </c:if>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" class="form-control" type="password">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            </form>
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </body>
 </html>
