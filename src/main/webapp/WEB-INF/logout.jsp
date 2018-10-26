@@ -7,10 +7,21 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
-    <h1>You have been logged out.</h1>
-    <hr>
-    <h2>Visit us again for your music needs!</h2>
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <h1>You have been logged out.</h1>
+            <hr>
+            <h2>Visit us again for your music needs!</h2>
+
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+
 </div>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <form action="/contact" method="POST">
         <div class="form-group">
             <label for="title">To:</label>
-            <input id="title" name="title" class="form-control" type="text" placeholder="Sender's Email Address">
+            <input id="title" name="title" class="form-control" type="text" placeholder="Recipient's Email Address">
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Subject</label>

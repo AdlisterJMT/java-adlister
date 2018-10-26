@@ -8,7 +8,10 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
+    <div class="container m-5">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
         <h1 style="text-align: center">Let's Make Music!</h1>
         <hr>
         <blockquote style="padding-top: 5%">🎤🎧🎼🎹🥁🎷🎺🎸🎻We are a community of individuals who enjoy collaborating inorder to create musical magnificence. What does collaboration
@@ -16,6 +19,9 @@
                     Once you create an account you can see all the ads posted by the members of our community. You can even create your own ad.
                     If you come across an ad that peaks your interest, click 'Contact Seller' and send them an email. Already a prestigious member?
                     Just click Login, and you know the drill.🎤🎧🎼🎹🥁🎷🎺🎸🎻</blockquote>
-    </div>
+            </div>
+            <div class="col-md-2"></div>
+            </div>
+        </div>
 </body>
 </html>
