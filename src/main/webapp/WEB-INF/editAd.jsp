@@ -16,7 +16,14 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbarLogin.jsp"/>
 
-    <div class="container">
+    <div class="container m-5">
+
+        <div class="row">
+
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
+
 
         <h1>Edit your Ad</h1>
         <form action="/editAd" method="post">
@@ -35,7 +42,10 @@
             <input type="hidden" name="id" value="${ad.id}"/>
         </form>
 
+            </div>
 
+        </div>
+        <div class="col-md-2"></div>
     </div>
 
 </body>

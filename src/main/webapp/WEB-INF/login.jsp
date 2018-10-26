@@ -9,7 +9,10 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
         <%--Idea to try to get if statement to show invaild UserName/Passwore--%>
         <%--<c:if test="${validAttempt}">--%>
             <%--Sorry. Wrong user name or password--%>
@@ -35,7 +38,10 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
+            </div>
+            <div class="col-md-2"></div>
         </div>
+    </div>
 
 </body>
 </html>
