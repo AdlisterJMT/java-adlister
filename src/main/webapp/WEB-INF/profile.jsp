@@ -31,6 +31,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">${ad.title}</h4>
+                <hr>
                 <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
                 <p class="card-text">${ad.description}</p>
                 <a href="/editAd?id=${ad.id}" class="btn btn-info">Edit Ad</a>

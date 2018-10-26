@@ -5,15 +5,24 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
+    <link rel="stylesheet" href="./css/css.css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Let's Make Music!</h1>
-        <hr>
-        <blockquote>If you are interested in any of the ads below; we ask that you log into your account, in order to contact the Seller.
+    <div class="container m-5">
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1 class="makeSomethingHappen">Let's Make Music!</h1>
+                <hr>
+                <blockquote class="indexText">If you are interested in any of the ads below; we ask that you log into your
+                    account, in order to contact the Seller.
                     If this is your first time to the site, please join the community by creating an account.
-        </blockquote>
+                </blockquote>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
     </div>
 </body>
 </html>
