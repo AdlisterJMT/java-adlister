@@ -9,12 +9,15 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbarLogin.jsp" />
 <%--Expression language  --%>
-    <div class="container">
+    <div class="container m-5">
 
         <%--To use the user's username in the profile page we must access the session in order to retrieve the user object--%>
         <%--use the ESL symbols and take the sessionScope which relates to the "request.getSession()" where you set user attribute
          in the LoginServlet to user, and access the user's username property--%>
 
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <hr>
             <h2>Here are your Ads.</h2>
@@ -43,13 +46,18 @@
         </div>
         </div>
         </c:forEach>
-    </div>
+
     <div>
         <% if (request.getSession().getAttribute("submitDone") == null ) { %>
         <% request.getSession().setAttribute("submitDone", false); %>
         <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
         <script>alert("Form submitted"); </script>
         <% } %>
+
+    </div>
+
+            </div>
+                <div class="col-md-2"></div>
     </div>
 </body>
 </html>
