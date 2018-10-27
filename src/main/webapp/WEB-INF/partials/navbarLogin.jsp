@@ -14,6 +14,7 @@
             </li>
             <li class="nav-item">
                 <form action="/deleteProfile" method="post">
+                    <%--DONT HAVE THIS BY ALL THE OTHER THINGS!--%>
                     <button class="btn btn-dark" type="submit">Delete Profile</button>
                 </form>
             </li>
