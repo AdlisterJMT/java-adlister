@@ -48,8 +48,6 @@
                         <input id="password" name="password" class="form-control" type="password">
                     </div>
 
-
-
                     <div class="form-group">
 
                         <label for="confirm_password">Confirm Password</label>
@@ -58,6 +56,7 @@
                 <%--8) If the passwordConfirmationError exists so show the alert message to the user--%>
                             <div class="alert alert-danger" role="alert">${passwordConfirmationError}</div>
                             </c:if>
+
                         <input id="confirm_password" name="confirm_password" class="form-control" type="password">
                     </div>
                     <input type="submit" class="btn btn-primary btn-block">

@@ -50,7 +50,9 @@
                 <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
                 <script>alert("Form submitted"); </script>
                 <% } %>
+
             </div>
+            <div class="col-md-2"></div>
         </div>
         <div class="col-md-2"></div>
     </div>

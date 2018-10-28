@@ -13,18 +13,18 @@
                 <a class="nav-link" href="/ads/create">Create New Ad</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Update Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Delete Profile</a>
+                <form action="/deleteProfile" method="post">
+                    <%--DONT HAVE THIS BY ALL THE OTHER THINGS!--%>
+                    <button class="btn btn-dark" type="submit">Delete Profile</button>
+                </form>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" name="term" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/search">Search</button>
         </form>
     </div>
 </nav>

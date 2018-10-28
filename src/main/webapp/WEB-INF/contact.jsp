@@ -13,15 +13,15 @@
     <form action="/contact" method="POST">
         <div class="form-group">
             <label for="title">To:</label>
-            <input id="title" name="title" class="form-control" type="text">
+            <input id="title" name="title" class="form-control" type="text" placeholder="Recipient's Email Address">
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Subject</label>
-            <input class="form-control" name="subject" id="exampleFormControlSelect1" type="text">
+            <input class="form-control" name="subject" id="exampleFormControlSelect1" type="text" placeholder="Subject of Message">
         </div>
         <div class="form-group">
             <label for="description">Message</label>
-            <textarea id="description" name="description" class="form-control" type="text"></textarea>
+            <textarea id="description" name="description" class="form-control" type="text" placeholder="Message"></textarea>
         </div>
         <input type="submit" class="btn btn-block btn-primary">
     </form>

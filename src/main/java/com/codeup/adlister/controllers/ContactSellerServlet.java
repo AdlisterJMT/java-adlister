@@ -18,7 +18,6 @@ public class ContactSellerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getSession().setAttribute("submitDone","done");
         response.sendRedirect("/profile");
-//        request.getRequestDispatcher("/WEB-INF/contact.jsp").forward(request, response);
 
     }
 
