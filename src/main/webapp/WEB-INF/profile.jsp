@@ -22,44 +22,39 @@
                 <hr>
                 <h2>Here are your Ads.</h2>
                 <br>
-
                 <%--use the ESL symbols and take the session scope which relates to the "request.getSession()" where you set the
                  ad attribute in the CreateAdServlet, and access the ad object's user_id which is specific to the user --%>
 
-
-
                 <%--Needs to show the user's ads--%>
                 <c:forEach var="ad" items="${ads}">
-                    <div class="card-group mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">${ad.title}</h4>
-                                <hr>
-                                    <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
-                                <p class="card-text">${ad.description}</p>
-
-
-                                <a href="/editAd?id=${ad.id}" class="btn btn-info">Edit Ad</a>
-                                <form action="/deleteAd" method="post">
-                                    <input type="hidden" name="adId" value="${ad.id}" />
-                                    <button class="btn btn-danger" style="max-width: 96px" type="submit">Delete Ad</button></form>
-                                    <%--<a href="#" class="btn btn-danger">Delete Ad</a>--%>
-                            </div>
+                <div class="card-group mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">${ad.title}</h4>
+                            <hr>
+                            <%--<h6 class="card-subtitle mb-2 text-muted">${}</h6>--%>
+                            <p class="card-text">${ad.description}</p>
+                            <a href="/editAd?id=${ad.id}" class="btn btn-info">Edit Ad</a>
+                            <form action="/deleteAd" method="post">
+                                <input type="hidden" name="adId" value="${ad.id}" />
+                                <button class="btn btn-danger" style="max-width: 96px" type="submit">Delete Ad</button></form>
+                                <%--<a href="#" class="btn btn-danger">Delete Ad</a>--%>
                         </div>
                     </div>
-                </c:forEach>
-
-                <div>
-                    <% if (request.getSession().getAttribute("submitDone") == null ) { %>
-                    <% request.getSession().setAttribute("submitDone", false); %>
-                    <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
-                    <script>alert("Form submitted"); </script>
-                    <% } %>
-
-                </div>
+                 </div>
+            </div>
+            </c:forEach>
+            <div>
+                <% if (request.getSession().getAttribute("submitDone") == null ) { %>
+                <% request.getSession().setAttribute("submitDone", false); %>
+                <% } else if (request.getSession().getAttribute("submitDone").equals("done") ) { %>
+                <script>alert("Form submitted"); </script>
+                <% } %>
 
             </div>
             <div class="col-md-2"></div>
         </div>
+        <div class="col-md-2"></div>
+    </div>
 </body>
 </html>
